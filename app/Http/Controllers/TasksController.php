@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
     public function index()
     {
-        $tasks = [];
-
-        for($i = 0; $i < 10; $i++) {
-            $task = new \stdClass();
-            $task->title = 'task '.($i+1);
-            $tasks[] = $task;
-        }
+        $tasks = Task::orderBy('created_at', 'DESC')->get();
 
         $data = ['tasks' => $tasks];
 
