@@ -63,21 +63,23 @@
                         @foreach($tasks as $task)
                             <tr>
                                 <td class="table-text">
-                                    <div class="">{{ $task->title }}</div>
+                                    <div class="{{ ($task->completed)? 'check' : '' }}">
+                                        {{ $task->title }}
+                                    </div>
                                 </td>
                                 <td>
+                                    @if (! $task->completed)
                                     <!-- 完成 Task 按鈕 -->
-                                    <form action="{{ url('tasks/1') }}" method="POST">
-
+                                    <form action="{{ url('tasks/'.$task->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PATCH') }}
-
                                         <button type="submit" class="btn btn-success">
                                             <i class="fa fa-check"></i>完成
                                         </button>
                                     </form>
+                                    @endif
                                     <!-- 刪除 Task 按鈕 -->
-                                    <form action="{{ url('tasks/1') }}" method="POST">
+                                    <form action="{{ url('tasks/'.$task->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
