@@ -59,44 +59,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="table-text">
-                                <div class="">Task 2</div>
-                            </td>
-                            <td>
-                                <!-- 完成 Task 按鈕 -->
-                                <form action="" method="POST" class="form-inline">
-                                    <button type="submit" class="btn btn-success">
-                                        <i class="fa fa-check"></i>完成
-                                    </button>
-                                </form>
-                                <!-- 刪除 Task 按鈕 -->
-                                <form action="" method="POST" class="form-inline">
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i>刪除
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-text">
-                                <div class="check">Task 1</div>
-                            </td>
-                            <td>
-                                <!-- 完成 Task 按鈕 -->
-                                <form action="" method="POST" class="form-inline">
-                                    <button type="submit" class="btn btn-success">
-                                        <i class="fa fa-check"></i>完成
-                                    </button>
-                                </form>
-                                <!-- 刪除 Task 按鈕 -->
-                                <form action="" method="POST" class="form-inline">
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i>刪除
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                        @foreach($tasks as $task)
+                            <tr>
+                                <td class="table-text">
+                                    <div class="">{{ $task->title }}</div>
+                                </td>
+                                <td>
+                                    <!-- 完成 Task 按鈕 -->
+                                    <form action="" method="POST" class="form-inline">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fa fa-check"></i>完成
+                                        </button>
+                                    </form>
+                                    <!-- 刪除 Task 按鈕 -->
+                                    <form action="" method="POST" class="form-inline">
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i>刪除
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
