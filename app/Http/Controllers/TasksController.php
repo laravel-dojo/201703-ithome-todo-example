@@ -23,8 +23,11 @@ class TasksController extends Controller
         return redirect('/');
     }
 
-    public function update($task)
+    public function update(Task $task)
     {
+        $task->completed = true;
+        $task->save();
+
         return redirect('/');
     }
 
