@@ -21,7 +21,7 @@
                     </div>
 
                     <!-- 建立新 Task 表單 -->
-                    <form action="" method="POST" class="form-horizontal">
+                    <form action="{{ url('tasks') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- Task 名稱 -->
@@ -67,7 +67,7 @@
                                 </td>
                                 <td>
                                     <!-- 完成 Task 按鈕 -->
-                                    <form action="" method="POST" class="form-inline">
+                                    <form action="{{ url('tasks/1') }}" method="POST">
 
                                         {{ csrf_field() }}
                                         {{ method_field('PATCH') }}
@@ -77,10 +77,10 @@
                                         </button>
                                     </form>
                                     <!-- 刪除 Task 按鈕 -->
-                                    <form action="" method="POST" class="form-inline">
+                                    <form action="{{ url('tasks/1') }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        
+
                                         <button type="submit" class="btn btn-danger">
                                             <i class="fa fa-trash"></i>刪除
                                         </button>
