@@ -18,6 +18,10 @@ class TasksController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
         Task::create($request->all());
 
         return redirect('/');
