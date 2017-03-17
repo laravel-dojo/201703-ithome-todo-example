@@ -28,8 +28,10 @@ class TasksController extends Controller
         return redirect('/');
     }
 
-    public function destroy($task)
+    public function destroy(Task $task)
     {
+        $task->delete();
+
         return redirect('/');
     }
 }
